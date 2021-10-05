@@ -1,0 +1,83 @@
+{% extends 'account/main.html' %}
+{% block content %}
+<table class="table table-striped table-m">
+    <thead>
+      <tr>
+            <th> total customers </th>
+            <th> delivred </th>
+            <th> pending </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+            <td> {{total_cus}} </td>
+            <td> {{delivred}} </td>
+            <td> {{pending}} </td>
+      </tr>
+    </tbody>
+  <style>
+        .container {
+            background-color: #848484;
+            color: white;
+            padding:10px;
+            margin: 10px 50px 20px; ; }
+    </style>
+    </>
+</table>
+<br>
+<br><br>
+<br><br>
+<br>
+<h2>Costumers Table </h2>
+<table class="table table-striped table-sm">
+    <thead>
+            <tr>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Date-C</th>
+            </tr>
+    </thead>
+    <tbody>
+    {% for cus in customers %}
+    <tr>
+        <td> {{cus.name}} </td>
+        <td> {{cus.phone}} </td>
+        <td> {{cus.email}} </td>
+        <td> {{cus.date_created}} </td>
+    </tr>
+    {% endfor %}
+
+</table>
+<br>
+
+<br>
+<h2> Orders Table </h2>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">date_Order</th>
+      <th scope="col">Status</th>
+      <th scope="col">update</th>
+        <th scope="col">remove</th>
+
+    </tr>
+  </thead>
+  <tbody>
+       {% for o in order %}
+    <tr>
+        <td> {{o.products.name}} </td>
+        <td> {{o.date_created}} </td>
+        <td> {{o.cas}} </td>
+        <td> <a href="">Update</a> </td>
+        <td> <a href="">Remove</a> </td>
+
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+{% endblock %}
